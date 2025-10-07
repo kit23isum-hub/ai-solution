@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Solutions | Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --nav-h: 76px;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      padding-top: var(--nav-h);
+      color: #fff;
+    }
+
+    .navbar.fixed-top {
+      z-index: 1080;
+      background: rgba(0, 0, 64, .88);
+      backdrop-filter: blur(6px);
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 700;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffd700;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .navbar-nav .nav-link.active {
+      color: #b3d9ff;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-align: left;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin-left: 5%;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #e0e0e0;
+    }
+
+    .btn-primary-custom {
+      background-color: #000080;
+      border: none;
+      padding: 12px 25px;
+      font-weight: 700;
+      color: #fff;
+      transition: background-color .3s;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: #1e3c72;
+      color: #fff;
+    }
+
+    footer {
+      background-color: navy;
+      color: #fff;
+      font-family: Tahoma, sans-serif;
+      padding: 40px 0;
+    }
+
+    .footer-link {
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      text-shadow: 2px 2px 4px #000;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #ffd700;
+      text-shadow: 3px 3px 6px #000;
+      transform: translateY(-2px);
+    }
+
+    /* Chatbot */
+    #cb {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 340px;
+      max-width: calc(100vw - 40px);
+      height: 460px;
+      display: none;
+      flex-direction: column;
+      background: #0b1220;
+      color: #e6f0ff;
+      border: 1px solid #1f2a44;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .4);
+      z-index: 1100;
+      font-family: Tahoma, sans-serif;
+      overflow: hidden;
+    }
+
+    #cb header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      background: linear-gradient(90deg, #001a66, #003399);
+      font-weight: 700
+    }
+
+    #cb .msgs {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      background: #0b1220
+    }
+
+    #cb .input {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      background: #0d1528;
+      border-top: 1px solid #1f2a44
+    }
+
+    #cb .input input {
+      flex: 1;
+      background: #0b1220;
+      color: #e6f0ff;
+      border: 1px solid #1f2a44;
+      border-radius: 10px;
+      padding: 10px;
+      outline: none
+    }
+
+    #cb .input button {
+      background: #b3d9ff;
+      border: none;
+      color: #001a33;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer
+    }
+
+    .msg {
+      max-width: 92%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      line-height: 1.35;
+      font-size: .92rem
+    }
+
+    .msg.user {
+      background: #163d7a;
+      margin-left: auto
+    }
+
+    .msg.bot {
+      background: #122042
+    }
+
+    #cb-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .3);
+      cursor: pointer;
+      z-index: 1099;
+      animation: cb-float 3s ease-in-out infinite
+    }
+
+    #cb-toggle img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain
+    }
+
+    @keyframes cb-float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-12px)
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main Navigation">
+    <div class="container">
+      <a href="home.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="./image/ai.png" alt="AI-Solutions logo" width="56" height="56" class="rounded" />
+        <div>
+          <div style="font-weight:bold; font-size:1.2rem;">AI-Solutions</div>
+          <div style="font-size:0.85rem; font-style:italic; color:#b3d9ff;">Innovating Intelligence, Transforming
+            Business</div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="solution.html" class="nav-link">Solution</a></li>
+          <li class="nav-item"><a href="Portfolios.html" class="nav-link">Portfolios</a></li>
+          <li class="nav-item"><a href="Testimonials.html" class="nav-link">Testimonials</a></li>
+          <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="./image/videos/Intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <style>
+/* Container */
+.hero {
+  position: relative;
+  height: 100vh;                /* full screen height */
+  display: flex;
+  justify-content: center;      /* center horizontally */
+  align-items: center;          /* center vertically */
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Background video */
+.hero video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* cover screen */
+  z-index: -2;
+}
+
+/* Dark overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);  /* semi-transparent black */
+  z-index: -1;
+}
+
+/* Foreground text */
+.hero .content {
+  position: relative;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero .content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero .content p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* Button */
+.btn-primary-custom {
+  background: #000080;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .3s;
+}
+.btn-primary-custom:hover {
+  background: #1e3c72;
+}
+</style>
+    
+    <div class="content">
+      <h1>Welcome to AI Solutions</h1>
+      <p>We deliver innovative AI-driven solutions to help businesses optimize operations, enhance analytics, and drive
+        growth.</p>
+      <a href="solution.html" class="btn btn-primary-custom mt-3">Explore Our Solutions</a>
+    </div>
+  </section>
+  <style>
+/* Container */
+.hero {
+  position: relative;
+  height: 100vh;                /* full screen height */
+  display: flex;
+  justify-content: center;      /* center horizontally */
+  align-items: center;          /* center vertically */
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Background video */
+.hero video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* cover screen */
+  z-index: -2;
+}
+
+/* Dark overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);  /* semi-transparent black */
+  z-index: -1;
+}
+
+/* Foreground text */
+.hero .content {
+  position: relative;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero .content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero .content p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #e0e0e0;
+}
+
+/* Button */
+.btn-primary-custom {
+  background: #000080;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .3s;
+}
+.btn-primary-custom:hover {
+  background: #1e3c72;
+}
+</style>
+  <!-- Chatbot -->
+  <div id="cb" role="dialog" aria-label="Buddy Bot" aria-modal="false">
+    <header>
+      <span>Buddy Bot</span>
+      <button id="cb-close" type="button" class="btn btn-sm btn-light">Close</button>
+    </header>
+    <div class="msgs" id="cb-msgs"></div>
+    <div class="input">
+      <input id="cb-input" type="text" placeholder="Ask about solutions, pricing, or support" aria-label="Message" />
+      <button id="cb-send" type="button">Send</button>
+    </div>
+  </div>
+
+  <!-- Google Fonts (headings: Poppins, text: Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons (social) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links" class="footer-card">
+        <h2 class="footer-title">Quick Links</h2>
+        <ul class="links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="solution.html">Solution</a></li>
+          <li><a href="portfolios.html" aria-current="page">Portfolios</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <section aria-labelledby="contact-heading" class="footer-card">
+        <h2 id="contact-heading" class="footer-title">Contact</h2>
+        <address class="contact">
+          <p>Phone: <a href="tel:+441915152000">+44 (0)191 515 2000</a></p>
+          <p>Email: <a href="mailto:student.helpline@sunderland.ac.uk">student.helpline@sunderland.ac.uk</a></p>
+        </address>
+
+        <!-- Load Bootstrap Icons (required for the <i class="bi ..."> icons) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<!-- Social Media -->
+<nav aria-label="Social media">
+  <ul class="social">
+    <li>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <i class="bi bi-facebook" aria-hidden="true"></i>
+        <span class="visually-hidden">Facebook</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <i class="bi bi-linkedin" aria-hidden="true"></i>
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <i class="bi bi-instagram" aria-hidden="true"></i>
+        <span class="visually-hidden">Instagram</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .social{
+    display:flex;
+    gap:14px;
+    margin-top:12px;
+    padding:0;
+    list-style:none;
+  }
+  .social a{
+    display:inline-flex;
+    width:40px; height:40px;
+    align-items:center; justify-content:center;
+    border-radius:50%;
+    color:#fff;
+    background: rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    text-decoration:none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .social a:hover, .social a:focus{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
+    color:#66b3ff;
+    border-color: rgba(255,255,255,.35);
+  }
+  .social i{ font-size:1.25rem; line-height:1; }
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0);
+    white-space:nowrap; border:0;
+  }
+</style>
+
+      </section>
+
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy">
+      &copy; <time id="year" aria-label="Current year"></time> AI-Solutions. All rights reserved.
+    </p>
+  </div>
+<style>
+  :root{
+    --footer-bg:#001a5a;
+    --footer-fg:#ffffff;
+    --footer-accent:#66b3ff;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.12);
+  }
+
+  .site-footer{
+    position:relative;
+    background: radial-gradient(1200px 400px at 10% -10%, rgba(255,255,255,.08), transparent 60%),
+                radial-gradient(900px 300px at 90% 0%, rgba(102,179,255,.12), transparent 60%),
+                linear-gradient(180deg, #002171, var(--footer-bg));
+    color:var(--footer-fg);
+    padding:48px 0 28px;
+    overflow:hidden;
+  }
+  .site-footer::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: conic-gradient(from 180deg at 50% -20%, rgba(255,255,255,.15), transparent 30%, rgba(255,255,255,.15) 60%, transparent 80%);
+    filter: blur(40px);
+    pointer-events:none;
+  }
+
+  /* Grid */
+  .footer-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:24px;
+  }
+
+  /* Cards */
+  .footer-card{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    padding:20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .footer-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    border-color: rgba(255,255,255,.22);
+  }
+
+  /* Titles */
+  .footer-title{
+    font: 700 1.05rem/1.2 "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin:0 0 12px;
+    letter-spacing:.2px;
+  }
+
+  /* Links list */
+  .links{
+    list-style:none; padding:0; margin:0;
+    columns:2; column-gap:24px;
+  }
+  .links li{ break-inside: avoid; margin:6px 0; }
+
+  .site-footer a{
+    color:#fff; text-decoration:none; font-weight:600;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat:no-repeat;
+    transition: background-size .2s ease, transform .2s ease, color .2s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+  .site-footer a:hover,
+  .site-footer a:focus{
+    color:var(--footer-accent);
+    background-size: 100% 2px;
+    transform: translateY(-2px);
+  }
+  .site-footer a:focus-visible{ outline:2px solid var(--footer-accent); outline-offset:3px; border-radius:6px; }
+
+  /* Contact */
+  .contact p{ margin:0 0 6px; }
+
+  /* Social */
+  .social{
+    display:flex; gap:14px; margin-top:12px; padding:0; list-style:none;
+  }
+  .social a{
+    display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center;
+    border-radius:50%;
+    background: rgba(255,255,255,.08);
+    border:1px solid var(--glass-border);
+    box-shadow: inset 0 0 0 0 rgba(102,179,255,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .social a:hover{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.25);
+    box-shadow: inset 0 0 24px 2px rgba(102,179,255,.35);
+  }
+
+  /* Divider + copyright */
+  .divider{
+    border:0; height:1px; background:rgba(255,255,255,.28);
+    margin:24px 0 14px;
+  }
+  .copy{
+    margin:0; font-size:.95rem; color:#d9e4ff; text-align:center;
+  }
+
+  /* A11y helper */
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
+
+  @media (max-width: 768px){
+    .links{ columns:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+
+  <div id="cb-toggle" aria-label="Open chat" title="Chat with us">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Chatbot" />
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      const $panel = document.getElementById('cb');
+      const $toggle = document.getElementById('cb-toggle');
+      const $close = document.getElementById('cb-close');
+      const $msgs = document.getElementById('cb-msgs');
+      const $input = document.getElementById('cb-input');
+      const $send = document.getElementById('cb-send');
+
+      function openPanel() { $panel.style.display = 'flex'; $toggle.style.display = 'none'; setTimeout(() => $input.focus(), 0); }
+      function closePanel() { $panel.style.display = 'none'; $toggle.style.display = 'flex'; }
+      $toggle.addEventListener('click', openPanel);
+      $close.addEventListener('click', closePanel);
+
+      function escapeHTML(s) { return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+      function addMsg(text, who) {
+        const d = document.createElement('div');
+        d.className = 'msg ' + who;
+        d.innerHTML = escapeHTML(text);
+        $msgs.appendChild(d);
+        $msgs.scrollTop = $msgs.scrollHeight;
+      }
+      function typeBot(text) {
+        const d = document.createElement('div');
+        d.className = 'msg bot';
+        $msgs.appendChild(d);
+        let i = 0; (function t() { if (i < text.length) { d.innerHTML += escapeHTML(text[i++]); $msgs.scrollTop = $msgs.scrollHeight; setTimeout(t, 15); } })();
+      }
+
+      function replyFor(q) {
+        const m = q.toLowerCase();
+        if (/price|pricing|cost|quote/.test(m)) return "We price by scope and data size. Share your use case and timeline. We provide a fixed quote.";
+        if (/solution|service|offer|capabil/.test(m)) return "We deliver custom ML models, analytics dashboards, process automations, and chatbots. See Solution for details.";
+        if (/contact|call|phone|email|reach/.test(m)) return "Reach us at +44 191 123 4567 or sunderland@ai.co.uk. The Contact page has a form.";
+        if (/portfolio|case|past/.test(m)) return "See Past Portfolios for examples. Tell us your sector for relevant case studies.";
+        if (/support|issue|bug|help/.test(m)) return "Describe the issue and any error message. We respond within one business day.";
+        if (/meeting|demo|consult|schedule/.test(m)) return "Share your availability and goals. We’ll propose slots and an agenda.";
+        if (/hello|hi|hey/.test(m)) return "Hi. I’m Buddy Bot. How can I help today?";
+        if (/what is ai/.test(m)) return "AI is software that performs tasks requiring human-like intelligence, such as learning and reasoning.";
+        if (/machine learning/.test(m)) return "ML lets systems learn patterns from data and make predictions without explicit rules.";
+        if (/cloud computing/.test(m)) return "Cloud runs apps and stores data over the internet for scale and flexibility.";
+        return "I didn’t get that. Ask about pricing, solutions, contact, support, or scheduling.";
+      }
+
+      function send() {
+        const text = $input.value.trim();
+        if (!text) return;
+        addMsg(text, 'user');
+        $input.value = '';
+        const typing = document.createElement('div');
+        typing.className = 'msg bot';
+        typing.textContent = 'Buddy Bot is typing...';
+        $msgs.appendChild(typing);
+        $msgs.scrollTop = $msgs.scrollHeight;
+        setTimeout(() => {
+          typing.remove();
+          typeBot(replyFor(text));
+        }, 1500);
+      }
+
+      $send.addEventListener('click', send);
+      $input.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+
+      addMsg('👋 Welcome. I am Buddy Bot. How can I help you today?', 'bot');
+    })();
+  </script>
+</body>
+
+</html>

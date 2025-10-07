@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Solutions | Portfolios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{ --nav-h:76px; }
+
+    body{
+      font-family: Tahoma, sans-serif;
+      background: linear-gradient(to bottom, #1e3c72, #2a5298);
+      color:#fff;
+      padding-top: var(--nav-h); /* keep content below fixed navbar */
+    }
+
+    .navbar.fixed-top{
+      z-index:1080;
+      background: rgba(0,0,64,.88);
+      backdrop-filter: blur(6px);
+    }
+
+    .card-custom{
+      background-color:#001f3f;
+      border-radius:12px;
+      color:#dcdcdc;
+      transition:transform .3s, box-shadow .3s;
+      height:100%;
+    }
+    .card-custom:hover{
+      transform: translateY(-8px);
+      box-shadow:0 8px 20px rgba(0,0,0,.3);
+    }
+    .card-custom h5{
+      color:#fff;
+      font-weight:700;
+    }
+
+    /* Navbar links bold + hover/active effect */
+    .navbar-nav .nav-link {
+      font-weight: bold;
+      text-transform: capitalize;
+      transition: all 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffd700; /* Gold hover */
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .navbar-nav .nav-link.active {
+      color: #b3d9ff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    footer{
+      background-color: navy;
+      color:#fff;
+      font-family: Tahoma, sans-serif;
+    }
+    footer a { text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="Main Navigation">
+  <div class="container">
+    <a href="home.html" class="navbar-brand d-flex align-items-center gap-2">
+      <img src="./image/ai.png" alt="AI-Solutions logo" width="56" height="56" class="rounded"/>
+      <div>
+        <div style="font-weight:bold; font-size:1.2rem;">AI-Solutions</div>
+        <div style="font-size:.85rem; font-style:italic; color:#d7d9dc;">Innovating Intelligence, Transforming Business</div>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="solution.html" class="nav-link">Solution</a></li>
+        <li class="nav-item"><a href="Portfolios.html" class="nav-link active" aria-current="page">Portfolios</a></li>
+        <li class="nav-item"><a href="Testimonials.html" class="nav-link">Testimonials</a></li>
+        <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+        <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Portfolios Section -->
+<section class="py-5" style="background-color: royalblue; color: navy;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="text-light"> Portfolios</h2>
+      <p class="text-light">Explore some of our AI solutions and how they transformed businesses.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- DocuMind -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom shadow-sm text-center p-3">
+          <img src="./image/documind-ai-review.png" alt="DocuMind" class="img-fluid mb-3" style="max-height:150px;">
+          <h5>DocuMind</h5>
+          <p>Enterprise documentation assistant to create, manage, and search knowledge.</p>
+          <ul class="text-start">
+            <li>Auto-summarizes and categorizes</li>
+            <li>Natural language search</li>
+            <li>Multi-language translation</li>
+            <li>Compliance scanner</li>
+            <li>Slack and Teams integrations</li>
+          </ul>
+          <a href="https://documindai.com/auth" class="btn btn-primary btn-sm mt-2" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+
+      <!-- Log AI -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom shadow-sm text-center p-3">
+          <img src="./image/AI-Inventory-Management.jpg" alt="Log AI" class="img-fluid mb-3" style="max-height:150px;">
+          <h5>Log AI</h5>
+          <p>Inventory management with demand forecasting and multi-site tracking.</p>
+          <ul class="text-start">
+            <li>Demand-based adjustment</li>
+            <li>Multi-location tracking</li>
+            <li>Seasonality forecasts</li>
+            <li>ERP and POS integrations</li>
+          </ul>
+          <a href="https://ddiy.co/best-ai-tools-inventory-management/" class="btn btn-primary btn-sm mt-2" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+
+      <!-- FinSight -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom shadow-sm text-center p-3">
+          <img src="./image/maxresdefault.jpg" alt="FinSight" class="img-fluid mb-3" style="max-height:150px;">
+          <h5>FinSight</h5>
+          <p>Financial insights for tracking, budgeting, and planning.</p>
+          <ul class="text-start">
+            <li>Fraud anomaly detection</li>
+            <li>Cash flow modeling</li>
+            <li>Expense auto-categorization</li>
+            <li>Budget recommendations</li>
+            <li>Overspend alerts</li>
+          </ul>
+          <a href="https://finsight.com/about" class="btn btn-primary btn-sm mt-2" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+
+      <!-- LaundriQ -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom shadow-sm text-center p-3">
+          <img src="./image/Samsung-Home.jpg" alt="LaundriQ" class="img-fluid mb-3" style="max-height:150px;">
+          <h5>LaundriQ</h5>
+          <p>Smart laundry care with Samsung SmartThings integration.</p>
+          <ul class="text-start">
+            <li>Fabric analysis</li>
+            <li>Detergent optimization</li>
+            <li>Mode selection per load</li>
+            <li>Water and energy savings</li>
+            <li>Remote control</li>
+          </ul>
+          <a href="https://news.samsung.com/global/samsungs-new-bespoke-ai-laundry-with-ai-home-enables-smarter-more-efficient-laundry-care" class="btn btn-primary btn-sm mt-2" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+
+      <!-- SafeOps -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card-custom shadow-sm text-center p-3">
+          <img src="./image/image-6.jpeg" alt="SafeOps" class="img-fluid mb-3" style="max-height:150px;">
+          <h5>SafeOps</h5>
+          <p>Workplace safety and compliance monitoring.</p>
+          <ul class="text-start">
+            <li>Real-time hazard detection</li>
+            <li>Predictive risk analytics</li>
+            <li>Compliance reporting</li>
+            <li>Personalized training</li>
+            <li>IoT sensor integration</li>
+          </ul>
+          <a href="https://www.linkedin.com/pulse/how-ai-surveillance-improves-workplace-safety-compliance-sus9c" class="btn btn-primary btn-sm mt-2" target="_blank" rel="noopener">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links" class="footer-card">
+        <h2 class="footer-title">Quick Links</h2>
+        <ul class="links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="solution.html">Solution</a></li>
+          <li><a href="portfolios.html" aria-current="page">Portfolios</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <section aria-labelledby="contact-heading" class="footer-card">
+        <h2 id="contact-heading" class="footer-title">Contact</h2>
+        <address class="contact">
+          <p>Phone: <a href="tel:+441915152000">+44 (0)191 515 2000</a></p>
+          <p>Email: <a href="mailto:student.helpline@sunderland.ac.uk">student.helpline@sunderland.ac.uk</a></p>
+        </address>
+
+        <!-- Load Bootstrap Icons (required for the <i class="bi ..."> icons) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<!-- Social Media -->
+<nav aria-label="Social media">
+  <ul class="social">
+    <li>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <i class="bi bi-facebook" aria-hidden="true"></i>
+        <span class="visually-hidden">Facebook</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <i class="bi bi-linkedin" aria-hidden="true"></i>
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <i class="bi bi-instagram" aria-hidden="true"></i>
+        <span class="visually-hidden">Instagram</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .social{
+    display:flex;
+    gap:14px;
+    margin-top:12px;
+    padding:0;
+    list-style:none;
+  }
+  .social a{
+    display:inline-flex;
+    width:40px; height:40px;
+    align-items:center; justify-content:center;
+    border-radius:50%;
+    color:#fff;
+    background: rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    text-decoration:none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .social a:hover, .social a:focus{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
+    color:#66b3ff;
+    border-color: rgba(255,255,255,.35);
+  }
+  .social i{ font-size:1.25rem; line-height:1; }
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0);
+    white-space:nowrap; border:0;
+  }
+</style>
+
+      </section>
+
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy">
+      &copy; <time id="year" aria-label="Current year"></time> AI-Solutions. All rights reserved.
+    </p>
+  </div>
+<style>
+  :root{
+    --footer-bg:#001a5a;
+    --footer-fg:#ffffff;
+    --footer-accent:#66b3ff;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.12);
+  }
+
+  .site-footer{
+    position:relative;
+    background: radial-gradient(1200px 400px at 10% -10%, rgba(255,255,255,.08), transparent 60%),
+                radial-gradient(900px 300px at 90% 0%, rgba(102,179,255,.12), transparent 60%),
+                linear-gradient(180deg, #002171, var(--footer-bg));
+    color:var(--footer-fg);
+    padding:48px 0 28px;
+    overflow:hidden;
+  }
+  .site-footer::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: conic-gradient(from 180deg at 50% -20%, rgba(255,255,255,.15), transparent 30%, rgba(255,255,255,.15) 60%, transparent 80%);
+    filter: blur(40px);
+    pointer-events:none;
+  }
+
+  /* Grid */
+  .footer-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:24px;
+  }
+
+  /* Cards */
+  .footer-card{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    padding:20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .footer-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    border-color: rgba(255,255,255,.22);
+  }
+
+  /* Titles */
+  .footer-title{
+    font: 700 1.05rem/1.2 "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin:0 0 12px;
+    letter-spacing:.2px;
+  }
+
+  /* Links list */
+  .links{
+    list-style:none; padding:0; margin:0;
+    columns:2; column-gap:24px;
+  }
+  .links li{ break-inside: avoid; margin:6px 0; }
+
+  .site-footer a{
+    color:#fff; text-decoration:none; font-weight:600;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat:no-repeat;
+    transition: background-size .2s ease, transform .2s ease, color .2s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+  .site-footer a:hover,
+  .site-footer a:focus{
+    color:var(--footer-accent);
+    background-size: 100% 2px;
+    transform: translateY(-2px);
+  }
+  .site-footer a:focus-visible{ outline:2px solid var(--footer-accent); outline-offset:3px; border-radius:6px; }
+
+  /* Contact */
+  .contact p{ margin:0 0 6px; }
+
+  /* Social */
+  .social{
+    display:flex; gap:14px; margin-top:12px; padding:0; list-style:none;
+  }
+  .social a{
+    display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center;
+    border-radius:50%;
+    background: rgba(255,255,255,.08);
+    border:1px solid var(--glass-border);
+    box-shadow: inset 0 0 0 0 rgba(102,179,255,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .social a:hover{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.25);
+    box-shadow: inset 0 0 24px 2px rgba(102,179,255,.35);
+  }
+
+  /* Divider + copyright */
+  .divider{
+    border:0; height:1px; background:rgba(255,255,255,.28);
+    margin:24px 0 14px;
+  }
+  .copy{
+    margin:0; font-size:.95rem; color:#d9e4ff; text-align:center;
+  }
+
+  /* A11y helper */
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
+
+  @media (max-width: 768px){
+    .links{ columns:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+<script>
+  // minimal on-scroll reveal
+  const els=[...document.querySelectorAll('.reveal')];
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+  },{threshold:.2});
+  els.forEach(el=>io.observe(el));
+</script>
+
+
+
+
+
+
+
+

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI-Solutions | Gallery</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{ --bg-top:#1e3c72; --bg-bottom:#2a5298; --card:#001f3f; --accent:#b3d9ff; --navy:#000080; }
+    html,body{height:100%}
+    body{font-family:Tahoma, sans-serif;background:linear-gradient(to bottom,var(--bg-top),var(--bg-bottom));color:#fff}
+
+    /* NAVBAR */
+    .bg-navy{ background-color:var(--navy) !important; }
+    .navbar-dark .navbar-nav .nav-link{ color:#fff; font-weight:700; }
+    .navbar-dark .navbar-nav .nav-link.active,
+    .navbar-dark .navbar-nav .nav-link:focus,
+    .navbar-dark .navbar-nav .nav-link:hover{ color:var(--accent); font-weight:700; }
+
+    .section-header h2{font-weight:700;letter-spacing:.3px}
+    .section-header p{opacity:.9}
+
+    .gallery-card{
+      background-color:var(--card); border-radius:14px; overflow:hidden; height:100%;
+      box-shadow:0 2px 8px rgba(0,0,0,.25); transition:transform .35s ease, box-shadow .35s ease;
+      position:relative; transform-style:preserve-3d; perspective:800px;
+    }
+    .gallery-card:hover{transform:translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,.35)}
+
+    @keyframes kb-left{0%{transform:scale(1.04)}50%{transform:scale(1.12) translate(-12px,-8px)}100%{transform:scale(1.04)}}
+    @keyframes kb-right{0%{transform:scale(1.04)}50%{transform:scale(1.12) translate(12px,-8px)}100%{transform:scale(1.04)}}
+
+    .gallery-img{
+      width:100%; height:260px; object-fit:cover; display:block; will-change:transform,filter;
+      animation: kb-left 15s ease-in-out infinite;
+      transition: transform .6s ease, filter .4s ease;
+      filter:saturate(.85) contrast(1.05);
+      transform-origin:center; backface-visibility:hidden;
+    }
+    .col-md-6:nth-child(even) .gallery-img{ animation-name: kb-right; animation-delay:.6s }
+    .col-md-6:nth-child(3n) .gallery-img{ animation-duration:17s }
+    .col-md-6:nth-child(5n) .gallery-img{ animation-duration:19s }
+
+    .gallery-card:hover .gallery-img{ animation-play-state:paused; filter:none; transform:scale(1.1) rotate(.8deg) }
+
+    .gallery-overlay{
+      position:absolute; inset:0; display:flex; align-items:flex-end; padding:14px;
+      background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,0));
+      opacity:0; transform:translateY(12px);
+      transition:opacity .35s ease, transform .35s ease;
+    }
+    .gallery-card:hover .gallery-overlay{opacity:1; transform:translateY(0)}
+    .overlay-title{font-size:1rem; font-weight:600; margin:0}
+    .overlay-sub{font-size:.85rem; opacity:.9; margin:0}
+
+    footer{background-color:var(--navy); color:#fff}
+    .brand-subtitle{font-size:.85rem; font-style:italic; color:var(--accent)}
+    .glightbox-clean .gdesc-inner{font-family:Tahoma, sans-serif}
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-navy" aria-label="Main Navigation">
+    <div class="container">
+      <a href="home.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="./image/ai.png" alt="AI-Solutions logo" width="56" height="56" class="rounded"/>
+        <div>
+          <div style="font-weight:700; font-size:1.2rem;">AI-Solutions</div>
+          <div class="brand-subtitle">Innovating Intelligence, Transforming Business</div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li class="nav-item"><a href="Portfolios.html" class="nav-link">Portfolios</a></li>
+          <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+          <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link active" aria-current="page">Gallery</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="py-5" style="background-color:royalblue;">
+    <div class="container">
+      <div class="text-center mb-5 section-header" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p>Browse photos from events, workshops, and product launches.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="50">
+          <article class="gallery-card">
+            <a href="./image/Upcoming-Events.jpg" class="glightbox" data-gallery="ai-gallery" data-title="Upcoming Events" data-description="Highlights from the event planning board.">
+              <img loading="lazy" src="./image/Upcoming-Events.jpg" alt="Upcoming Events board" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Upcoming Events</p><p class="overlay-sub">Planning highlights</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <article class="gallery-card">
+            <a href="./image/Blog_Feature.jpg" class="glightbox" data-gallery="ai-gallery" data-title="Product Launch" data-description="Launch visuals and hero creatives.">
+              <img loading="lazy" src="./image/Blog_Feature.jpg" alt="Product launch hero image" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Product Launch</p><p class="overlay-sub">Hero creatives</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="150">
+          <article class="gallery-card">
+            <a href="./image/workshop-img.jpg" class="glightbox" data-gallery="ai-gallery" data-title="Workshop" data-description="Hands-on session snapshots.">
+              <img loading="lazy" src="./image/workshop-img.jpg" alt="Workshop session" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Workshop</p><p class="overlay-sub">Hands-on session</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <article class="gallery-card">
+            <a href="./image/R (2).jpg" class="glightbox" data-gallery="ai-gallery" data-title="Team Activity" data-description="Team-building and collaboration moments.">
+              <img loading="lazy" src="./image/R (2).jpg" alt="Team activity" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Team Activity</p><p class="overlay-sub">Collaboration</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="250">
+          <article class="gallery-card">
+            <a href="./image/R (3).jpg" class="glightbox" data-gallery="ai-gallery" data-title="Seminar" data-description="Talks, panels, and Q&A.">
+              <img loading="lazy" src="./image/R (3).jpg" alt="Seminar talk" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Seminar</p><p class="overlay-sub">Talks and panels</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <article class="gallery-card">
+            <a href="./image/The-Ultimate-Guide.png" class="glightbox" data-gallery="ai-gallery" data-title="Promo" data-description="Campaign artwork and covers.">
+              <img loading="lazy" src="./image/The-Ultimate-Guide.png" alt="Promotional artwork" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Promo</p><p class="overlay-sub">Campaign artwork</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="350">
+          <article class="gallery-card">
+            <a href="./image/Build-Your-AI-App.jpg" class="glightbox" data-gallery="ai-gallery" data-title="AI Demo" data-description="Live demo screens and UX.">
+              <img loading="lazy" src="./image/Build-Your-AI-App.jpg" alt="AI app demo" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">AI Demo</p><p class="overlay-sub">Live showcase</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+          <article class="gallery-card">
+            <a href="./image/getty.jpg" class="glightbox" data-gallery="ai-gallery" data-title="Conference" data-description="Keynotes and expo floor.">
+              <img loading="lazy" src="./image/getty.jpg" alt="Conference keynote" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Conference</p><p class="overlay-sub">Keynotes</p></div></div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="450">
+          <article class="gallery-card">
+            <a href="./image/blog-images.jpg" class="glightbox" data-gallery="ai-gallery" data-title="Team Meeting" data-description="Strategy and planning moments.">
+              <img loading="lazy" src="./image/blog-images.jpg" alt="Team meeting" class="gallery-img"/>
+            </a>
+            <div class="gallery-overlay"><div><p class="overlay-title">Team Meeting</p><p class="overlay-sub">Strategy</p></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links" class="footer-card">
+        <h2 class="footer-title">Quick Links</h2>
+        <ul class="links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="solution.html">Solution</a></li>
+          <li><a href="portfolios.html" aria-current="page">Portfolios</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <section aria-labelledby="contact-heading" class="footer-card">
+        <h2 id="contact-heading" class="footer-title">Contact</h2>
+        <address class="contact">
+          <p>Phone: <a href="tel:+441915152000">+44 (0)191 515 2000</a></p>
+          <p>Email: <a href="mailto:student.helpline@sunderland.ac.uk">student.helpline@sunderland.ac.uk</a></p>
+        </address>
+
+        <!-- Load Bootstrap Icons (required for the <i class="bi ..."> icons) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<!-- Social Media -->
+<nav aria-label="Social media">
+  <ul class="social">
+    <li>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <i class="bi bi-facebook" aria-hidden="true"></i>
+        <span class="visually-hidden">Facebook</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <i class="bi bi-linkedin" aria-hidden="true"></i>
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <i class="bi bi-instagram" aria-hidden="true"></i>
+        <span class="visually-hidden">Instagram</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .social{
+    display:flex;
+    gap:14px;
+    margin-top:12px;
+    padding:0;
+    list-style:none;
+  }
+  .social a{
+    display:inline-flex;
+    width:40px; height:40px;
+    align-items:center; justify-content:center;
+    border-radius:50%;
+    color:#fff;
+    background: rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    text-decoration:none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .social a:hover, .social a:focus{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
+    color:#66b3ff;
+    border-color: rgba(255,255,255,.35);
+  }
+  .social i{ font-size:1.25rem; line-height:1; }
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0);
+    white-space:nowrap; border:0;
+  }
+</style>
+
+      </section>
+
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy">
+      &copy; <time id="year" aria-label="Current year"></time> AI-Solutions. All rights reserved.
+    </p>
+  </div>
+<style>
+  :root{
+    --footer-bg:#001a5a;
+    --footer-fg:#ffffff;
+    --footer-accent:#66b3ff;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.12);
+  }
+
+  .site-footer{
+    position:relative;
+    background: radial-gradient(1200px 400px at 10% -10%, rgba(255,255,255,.08), transparent 60%),
+                radial-gradient(900px 300px at 90% 0%, rgba(102,179,255,.12), transparent 60%),
+                linear-gradient(180deg, #002171, var(--footer-bg));
+    color:var(--footer-fg);
+    padding:48px 0 28px;
+    overflow:hidden;
+  }
+  .site-footer::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: conic-gradient(from 180deg at 50% -20%, rgba(255,255,255,.15), transparent 30%, rgba(255,255,255,.15) 60%, transparent 80%);
+    filter: blur(40px);
+    pointer-events:none;
+  }
+
+  /* Grid */
+  .footer-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:24px;
+  }
+
+  /* Cards */
+  .footer-card{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    padding:20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .footer-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    border-color: rgba(255,255,255,.22);
+  }
+
+  /* Titles */
+  .footer-title{
+    font: 700 1.05rem/1.2 "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin:0 0 12px;
+    letter-spacing:.2px;
+  }
+
+  /* Links list */
+  .links{
+    list-style:none; padding:0; margin:0;
+    columns:2; column-gap:24px;
+  }
+  .links li{ break-inside: avoid; margin:6px 0; }
+
+  .site-footer a{
+    color:#fff; text-decoration:none; font-weight:600;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat:no-repeat;
+    transition: background-size .2s ease, transform .2s ease, color .2s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+  .site-footer a:hover,
+  .site-footer a:focus{
+    color:var(--footer-accent);
+    background-size: 100% 2px;
+    transform: translateY(-2px);
+  }
+  .site-footer a:focus-visible{ outline:2px solid var(--footer-accent); outline-offset:3px; border-radius:6px; }
+
+  /* Contact */
+  .contact p{ margin:0 0 6px; }
+
+  /* Social */
+  .social{
+    display:flex; gap:14px; margin-top:12px; padding:0; list-style:none;
+  }
+  .social a{
+    display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center;
+    border-radius:50%;
+    background: rgba(255,255,255,.08);
+    border:1px solid var(--glass-border);
+    box-shadow: inset 0 0 0 0 rgba(102,179,255,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .social a:hover{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.25);
+    box-shadow: inset 0 0 24px 2px rgba(102,179,255,.35);
+  }
+
+  /* Divider + copyright */
+  .divider{
+    border:0; height:1px; background:rgba(255,255,255,.28);
+    margin:24px 0 14px;
+  }
+  .copy{
+    margin:0; font-size:.95rem; color:#d9e4ff; text-align:center;
+  }
+
+  /* A11y helper */
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
+
+  @media (max-width: 768px){
+    .links{ columns:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    AOS.init({ duration: 900, easing: 'ease-out-cubic', once: true, offset: 80 });
+    const lightbox = GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true, zoomable: true, moreText: 'View' });
+
+    // Subtle 3D tilt on mouse move
+    const clamp = (n, min, max) => Math.max(min, Math.min(n, max));
+    document.querySelectorAll('.gallery-card').forEach(card=>{
+      let rx=0, ry=0, af=null;
+      const onMove = e=>{
+        const r = card.getBoundingClientRect();
+        const cx = e.clientX - r.left, cy = e.clientY - r.top;
+        const px = (cx/r.width - .5)*2;
+        const py = (cy/r.height - .5)*2;
+        rx = clamp(-py*6, -6, 6);
+        ry = clamp(px*6, -6, 6);
+        if(!af){ af = requestAnimationFrame(()=>{ card.style.transform = `translateY(-4px) rotateX(${rx}deg) rotateY(${ry}deg)`; af=null; }); }
+      };
+      const reset = ()=>{ card.style.transform='translateY(0) rotateX(0) rotateY(0)'; };
+      card.addEventListener('mousemove', onMove);
+      card.addEventListener('mouseleave', reset);
+      card.addEventListener('touchstart', reset, {passive:true});
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI-Solutions | Blog</title>
+  <meta name="description" content="AI-Solutions blog: insights, news, and updates on AI, ML, automation, and technology trends." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-top:#1e3c72;
+      --bg-bottom:#2a5298;
+      --accent:#b3d9ff;
+      --navy:#000080;
+    }
+    html,body{height:100%}
+    body{
+      font-family:Tahoma, sans-serif;
+      background:linear-gradient(to bottom,var(--bg-top),var(--bg-bottom));
+      color:#fff;
+    }
+    .bg-navy{background-color:var(--navy)!important}
+    .navbar-dark .nav-link{color:#fff;font-weight:700}
+    .navbar-dark .nav-link:hover,
+    .navbar-dark .nav-link:focus,
+    .navbar-dark .nav-link.active{color:var(--accent)}
+
+    /* Blog cards: white background, black text */
+    .card {
+      background-color:#fff;
+      border:none;
+    }
+    .card-title,
+    .card-text {
+      color:#000;
+    }
+
+    .card .badge{z-index:2}
+    footer{background-color:var(--navy);color:#fff}
+    a.footer-link{color:#fff;text-decoration:none}
+    a.footer-link:hover,a.footer-link:focus{color:var(--accent)}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-navy" aria-label="Main navigation">
+    <div class="container">
+      <a href="home.html" class="navbar-brand d-flex align-items-center gap-2">
+        <img src="./image/ai.png" alt="AI-Solutions logo" width="56" height="56" class="rounded" decoding="async" loading="lazy" />
+        <div>
+          <div style="font-weight:700;font-size:1.2rem">AI-Solutions</div>
+          <div style="font-size:.85rem;font-style:italic;color:#b3d9ff">Innovating Intelligence, Transforming Business</div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" aria-hidden="true"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="home.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li class="nav-item"><a href="Portfolios.html" class="nav-link">Portfolios</a></li>
+          <li class="nav-item"><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+          <li class="nav-item"><a href="articles.html" class="nav-link">Articles</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link active" aria-current="page">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main id="main-content" class="py-5">
+    <div class="container">
+      <header class="text-center mb-5">
+        <h1 class="text-white h2">Our Blog</h1>
+        <p class="text-light mb-0">Insights, news, and updates on AI solutions and technology trends.</p>
+      </header>
+
+      <div class="row g-4" role="list">
+        <!-- Post 1 -->
+        <div class="col-md-6 col-lg-4" role="listitem">
+          <article class="card h-100 shadow-sm">
+            <span class="badge bg-success position-absolute" style="top:10px;right:10px">Automation</span>
+            <img src="./image/R (4).jpg" class="card-img-top"
+                 alt="Illustration representing business process automation"
+                 style="height:200px;object-fit:cover" loading="lazy" decoding="async">
+            <div class="card-body">
+              <h2 class="card-title h5">Automation Tools for Modern Businesses</h2>
+              <p class="card-text">Discover AI-powered automation tools that increase productivity and reduce operational costs.</p>
+              <a href="https://www.bing.com/search?q=Automation+Tools+for+Modern+Businesses"
+                 class="btn btn-primary" target="_blank" rel="noopener noreferrer">Read More</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="col-md-6 col-lg-4" role="listitem">
+          <article class="card h-100 shadow-sm">
+            <span class="badge bg-success position-absolute" style="top:10px;right:10px">Healthcare</span>
+            <img src="./image/custom-ai-solutions.jpg" class="card-img-top"
+                 alt="Doctor using AI tools on a tablet"
+                 style="height:200px;object-fit:cover" loading="lazy" decoding="async">
+            <div class="card-body">
+              <h2 class="card-title h5">Benefits of Artificial Intelligence in Healthcare</h2>
+              <p class="card-text">Explore how AI is transforming patient care, diagnostics, and efficiency in modern healthcare systems.</p>
+              <a href="https://www.bing.com/search?q=AI+in+Healthcare"
+                 class="btn btn-primary" target="_blank" rel="noopener noreferrer">Read More</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="col-md-6 col-lg-4" role="listitem">
+          <article class="card h-100 shadow-sm">
+            <span class="badge bg-warning text-dark position-absolute" style="top:10px;right:10px">ML Trends</span>
+            <img src="./image/1_Dc.jpg" class="card-img-top"
+                 alt="Graph and neural icons indicating machine learning trends"
+                 style="height:200px;object-fit:cover" loading="lazy" decoding="async">
+            <div class="card-body">
+              <h2 class="card-title h5">Top Machine Learning Trends in 2025</h2>
+              <p class="card-text">Stay ahead with the latest AI and machine learning innovations shaping the future of technology.</p>
+              <a href="https://techspark.in/ai-ml/ai-machine-learning-trends-2025"
+                 class="btn btn-primary" target="_blank" rel="noopener noreferrer">Read More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links" class="footer-card">
+        <h2 class="footer-title">Quick Links</h2>
+        <ul class="links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="solution.html">Solution</a></li>
+          <li><a href="portfolios.html" aria-current="page">Portfolios</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <section aria-labelledby="contact-heading" class="footer-card">
+        <h2 id="contact-heading" class="footer-title">Contact</h2>
+        <address class="contact">
+          <p>Phone: <a href="tel:+441915152000">+44 (0)191 515 2000</a></p>
+          <p>Email: <a href="mailto:student.helpline@sunderland.ac.uk">student.helpline@sunderland.ac.uk</a></p>
+        </address>
+
+        <!-- Load Bootstrap Icons (required for the <i class="bi ..."> icons) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<!-- Social Media -->
+<nav aria-label="Social media">
+  <ul class="social">
+    <li>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <i class="bi bi-facebook" aria-hidden="true"></i>
+        <span class="visually-hidden">Facebook</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+        <i class="bi bi-linkedin" aria-hidden="true"></i>
+        <span class="visually-hidden">LinkedIn</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram">
+        <i class="bi bi-instagram" aria-hidden="true"></i>
+        <span class="visually-hidden">Instagram</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .social{
+    display:flex;
+    gap:14px;
+    margin-top:12px;
+    padding:0;
+    list-style:none;
+  }
+  .social a{
+    display:inline-flex;
+    width:40px; height:40px;
+    align-items:center; justify-content:center;
+    border-radius:50%;
+    color:#fff;
+    background: rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    text-decoration:none;
+    transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .social a:hover, .social a:focus{
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
+    color:#66b3ff;
+    border-color: rgba(255,255,255,.35);
+  }
+  .social i{ font-size:1.25rem; line-height:1; }
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0);
+    white-space:nowrap; border:0;
+  }
+</style>
+
+      </section>
+
+    </div>
+
+    <hr class="divider">
+
+    <p class="copy">
+      &copy; <time id="year" aria-label="Current year"></time> AI-Solutions. All rights reserved.
+    </p>
+  </div>
+<style>
+  :root{
+    --footer-bg:#001a5a;
+    --footer-fg:#ffffff;
+    --footer-accent:#66b3ff;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.12);
+  }
+
+  .site-footer{
+    position:relative;
+    background: radial-gradient(1200px 400px at 10% -10%, rgba(255,255,255,.08), transparent 60%),
+                radial-gradient(900px 300px at 90% 0%, rgba(102,179,255,.12), transparent 60%),
+                linear-gradient(180deg, #002171, var(--footer-bg));
+    color:var(--footer-fg);
+    padding:48px 0 28px;
+    overflow:hidden;
+  }
+  .site-footer::before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: conic-gradient(from 180deg at 50% -20%, rgba(255,255,255,.15), transparent 30%, rgba(255,255,255,.15) 60%, transparent 80%);
+    filter: blur(40px);
+    pointer-events:none;
+  }
+
+  /* Grid */
+  .footer-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:24px;
+  }
+
+  /* Cards */
+  .footer-card{
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    border-radius:16px;
+    padding:20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .footer-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,.35);
+    border-color: rgba(255,255,255,.22);
+  }
+
+  /* Titles */
+  .footer-title{
+    font: 700 1.05rem/1.2 "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin:0 0 12px;
+    letter-spacing:.2px;
+  }
+
+  /* Links list */
+  .links{
+    list-style:none; padding:0; margin:0;
+    columns:2; column-gap:24px;
+  }
+  .links li{ break-inside: avoid; margin:6px 0; }
+
+  .site-footer a{
+    color:#fff; text-decoration:none; font-weight:600;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    background-repeat:no-repeat;
+    transition: background-size .2s ease, transform .2s ease, color .2s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  }
+  .site-footer a:hover,
+  .site-footer a:focus{
+    color:var(--footer-accent);
+    background-size: 100% 2px;
+    transform: translateY(-2px);
+  }
+  .site-footer a:focus-visible{ outline:2px solid var(--footer-accent); outline-offset:3px; border-radius:6px; }
+
+  /* Contact */
+  .contact p{ margin:0 0 6px; }
+
+  /* Social */
+  .social{
+    display:flex; gap:14px; margin-top:12px; padding:0; list-style:none;
+  }
+  .social a{
+    display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center;
+    border-radius:50%;
+    background: rgba(255,255,255,.08);
+    border:1px solid var(--glass-border);
+    box-shadow: inset 0 0 0 0 rgba(102,179,255,.35);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .social a:hover{
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.25);
+    box-shadow: inset 0 0 24px 2px rgba(102,179,255,.35);
+  }
+
+  /* Divider + copyright */
+  .divider{
+    border:0; height:1px; background:rgba(255,255,255,.28);
+    margin:24px 0 14px;
+  }
+  .copy{
+    margin:0; font-size:.95rem; color:#d9e4ff; text-align:center;
+  }
+
+  /* A11y helper */
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+  }
+
+  @media (max-width: 768px){
+    .links{ columns:1; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
